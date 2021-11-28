@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <title>Cornucopia</title>
+    <style>
+        body {
+            background-color: #EEEEEE;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        #webglcanvas {
+            display: block; /* To remove the scrollbars */
+            width: 100%;
+            height: 100%;
+        }
+
+        #info-block {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .sliders {
+            display: flex;
+            align-content: center;
+        }
+
+    </style>
+
+    <!--
+        An example using a TrackballRotator, defined in TrackballRotator.js,
+        to implement rotation by mouse.
+    -->
+
+    <script src="./Utils/trackball-rotator.js"></script>
+    <script src="./Utils/m4.js"></script>
+    <script src="shader.js"></script>
+    <script src="./main.js"></script>
+
+
+</head>
+<body onload="init()">
+
+<noscript>
+    <hr>
+    <h3>This page requires Javascript and a web browser that supports WebGL</h3>
+    <hr>
+</noscript>
+<div id='info-block'>
+    <h2 style="color:white">Сornucopia</h2>
+    <div id="buttons">
+        <div class="sliders">
+            <label style="color:white" for="m">M</label>
+            <input type="range" min="0" max="2" value="0.2" class="slider" step="0.01" id="m">
+            <input type="number" min="0" max="2" value="0.2" class="slider" step="0.01" id="numM">
+        </div>
+        <div class="sliders">
+            <label style="color:white" for="p">P</label>
+            <input type="range" min="0" max="0.5" value="0.1" class="slider" step="0.01" id="p">
+            <input type="number" min="0" max="0.5" value="0.1" class="slider" step="0.01" id="numP">
+        </div>
+        <div class="sliders">
+            <label style="color:white" for="eyeSeparation">Eye Separation</label>
+            <input type="number" min="0" max="1000" value="0" class="slider" step="1" id="eyeSeparation">
+        </div>
+        <div>
+            <button style="margin-top: 10px" onclick="toggleWireframe(this)">Show wireframe</button>
+        </div>
+    </div>
+</div>
+<div id="canvas-holder" style="width: 100vw; height: 100vh">
+    <canvas id="webglcanvas" style="background-color:white">
+    </canvas>
+</div>
+
+
+</body>
+</html>
